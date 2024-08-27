@@ -3,22 +3,20 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:grocery_shopping/core/API/api_endPoint.dart';
-import 'package:grocery_shopping/core/failure/failure.dart';
 import 'package:grocery_shopping/features/grocery/data/model/grocery_model.dart';
 import 'package:mockito/mockito.dart';
-import 'package:http/http.dart' as http;
+
 import '../../../../helper/jsonr_espond/read_json.dart';
 import '../../../../helper/mock_data.mocks.dart';
 
 void main() {
-  late MockHttpClient mockHttpClient;
+
 
   late MockGroceryRemoteDataSourceImpl groceryRemoteDataSourceImpl;
 
 
   setUpAll((){
-    mockHttpClient = MockHttpClient();
+
     groceryRemoteDataSourceImpl = MockGroceryRemoteDataSourceImpl();
   });
 

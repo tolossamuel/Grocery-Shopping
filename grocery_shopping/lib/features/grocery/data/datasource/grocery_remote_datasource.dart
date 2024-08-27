@@ -28,12 +28,15 @@ class GroceryRemoteDataSourceImpl implements GroceryRemoteDatasource{
       final respond =  await client.get(
         Uri.parse(ApiEndpoint.getAllProductApi())
       );
-      if (respond == 200){
+      
+      if (respond.statusCode == 200){
         final jsonDecode = json.decode(respond.body);
+   
         for (dynamic data in jsonDecode['data']){
           final groceryModel = GroceryModel.fromJson(data);
           groceryModelList.add(groceryModel);
         }
+        
         return groceryModelList;
       }
       else {
