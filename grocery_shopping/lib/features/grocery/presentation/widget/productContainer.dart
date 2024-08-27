@@ -8,6 +8,7 @@ class ProductImage extends StatelessWidget {
   final double rating;
   final String title;
   final String id;
+  final String desc;
 
   const ProductImage({
     super.key,
@@ -16,6 +17,7 @@ class ProductImage extends StatelessWidget {
     required this.title,
     required this.id,
     required this.rating,
+    required this.desc
   });
 
   @override
@@ -32,7 +34,12 @@ class ProductImage extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(10),
             child: GestureDetector(
-                onTap: () => {},
+                onTap: () => {
+                  Navigator.pushNamed(
+                context, '/detail',
+                arguments: {'rating':rating.toString(),'disc':desc,'imageUrl':imageUrl,'price':price.toString(),'name':title,'id':id}
+            )
+                },
               child: Container(
                 color: const Color.fromARGB(255, 226, 225, 225),
                 height: MediaQuery.of(context).size.width * 0.5, // Adjust height based on image width

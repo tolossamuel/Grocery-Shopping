@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:grocery_shopping/features/grocery/presentation/UI/homeScreen/description.dart';
 import 'package:grocery_shopping/features/grocery/presentation/bloc/product_bloc.dart';
 import 'package:grocery_shopping/features/grocery/presentation/bloc/product_stae.dart';
 import 'package:grocery_shopping/features/grocery/presentation/widget/back_idons.dart';
@@ -102,13 +103,8 @@ class DetailPage extends StatelessWidget {
                     height: 15,
                   ),
                   
-                  // size of product if avilable
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  
-                  const SizedBox(
-                    height: 10,
+                  SizedBox(
+                    child: Descriptions(text: data['disc']),
                   ),
                   
                 ],

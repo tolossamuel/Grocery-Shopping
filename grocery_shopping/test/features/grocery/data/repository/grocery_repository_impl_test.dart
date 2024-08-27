@@ -18,7 +18,7 @@ void main() {
     mockCartService = MockCartService();
     groceryRepositoryImpl = GroceryRepositoryImpl(
         groceryRemoteDatasource: mockGroceryRemoteDataSource,
-        service: mockCartService);
+        );
 
   });
   final List<GroceryModel> groceryEntity = [
@@ -101,56 +101,7 @@ void main() {
       },
     );
 
-    test(
-      'test get all cart that returns success state',
-      () async {
-        when(mockCartService.getAllCartProducts())
-            .thenAnswer((_) async => cartList);
-
-        final result = await groceryRepositoryImpl.getCartProduct();
-
-        // Assert that result is a Right containing a List<GroceryEntity>
-        // expect(result, isA<Map<String,dynamic>>());
-
-        // Unwrap the Right and check that it contains the correct list
-        result.fold((failure) => fail('Expected success, got failure'),
-            (result) {
-          expect(result, isA<Map<String,dynamic>>());
-           // Compare the actual list with the expected one
-        });
-      },
-    );
-
-    test(
-      'test  add cart that returns success state',
-      () async {
-        when(mockCartService.addOrUpdateCartProduct(any,any))
-            .thenAnswer((_) async => true);
-
-        final result = await groceryRepositoryImpl.addCartProduct('1',cartList);
-        result.fold((failure) => fail('Expected success, got failure'),
-            (result) {
-          expect(result, equals(true));
-           // Compare the actual list with the expected one
-        });
-      },
-    );
-
-    test(
-      'test  delete cart that returns success state',
-      () async {
-        when(mockCartService.deleteCartProduct(any))
-            .thenAnswer((_) async => true);
-
-        final result = await groceryRepositoryImpl.deleteCartProduct('1');
-        result.fold((failure) => fail('Expected success, got failure'),
-            (result) {
-          expect(result, equals(true));
-           // Compare the actual list with the expected one
-        });
-      },
-    );
-
+   
     
   });
 }

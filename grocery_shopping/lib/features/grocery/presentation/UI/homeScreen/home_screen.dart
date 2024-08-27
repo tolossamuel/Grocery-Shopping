@@ -107,6 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               price: current.price,
                               title: current.title,
                               id: current.id,
+                              desc: current.description,
                               rating: current.rating,
                             );
                           },
