@@ -28,6 +28,7 @@ void main() {
       price: 230, 
       discount: 0.1, 
       description: 'test', 
+      imageUrl: 'test.png',
       options: [
         {
           'id' : '13',
@@ -42,6 +43,7 @@ void main() {
       price: 230, 
       discount: 0.1, 
       description: 'test 2', 
+      imageUrl: 'test.png',
       options: [
         {
           'id' : '13',

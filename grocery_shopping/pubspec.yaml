@@ -39,6 +39,8 @@ dependencies:
   dartz: ^0.10.1
   mockito: ^5.4.4
   build_runner: ^2.4.12
+  http_parser: ^4.0.2
+  http: ^1.2.2
 
 dev_dependencies:
   flutter_test:
