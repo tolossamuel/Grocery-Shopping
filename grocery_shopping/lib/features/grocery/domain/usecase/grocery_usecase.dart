@@ -30,6 +30,20 @@ class GroceryUsecase  extends Equatable{
     
     
   }
+
+  Future<Either<Failure,Map<String,dynamic>>> getAllCartProduct() async{
+    final result = await groceryRepository.getCartProduct();
+    return result;
+  }
+  Future<Either<Failure,bool>> deleteCartProduct(String cartId) async{
+    final result = await groceryRepository.deleteCartProduct(cartId);
+    return result;
+  }
+
+  Future<Either<Failure,bool>> addCartProduct(String cartId,dynamic product) async{
+    final result = await groceryRepository.addCartProduct(cartId,product);
+    return result;
+  }
   @override
   List<Object?> get props => throw UnimplementedError();
 }

@@ -4,11 +4,13 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i6;
-import 'dart:convert' as _i10;
-import 'dart:typed_data' as _i12;
+import 'dart:convert' as _i11;
+import 'dart:typed_data' as _i13;
 
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:grocery_shopping/core/failure/failure.dart' as _i7;
+import 'package:grocery_shopping/features/grocery/data/datasource/grocery_local_datasource.dart'
+    as _i10;
 import 'package:grocery_shopping/features/grocery/data/datasource/grocery_remote_datasource.dart'
     as _i9;
 import 'package:grocery_shopping/features/grocery/data/model/grocery_model.dart'
@@ -19,7 +21,7 @@ import 'package:grocery_shopping/features/grocery/domain/repository/grocery_repo
     as _i5;
 import 'package:http/http.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:mockito/src/dummies.dart' as _i11;
+import 'package:mockito/src/dummies.dart' as _i12;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -135,6 +137,67 @@ class MockGroceryRepository extends _i1.Mock implements _i5.GroceryRepository {
           ),
         )),
       ) as _i6.Future<_i2.Either<_i7.Failure, _i8.GroceryEntity>>);
+
+  @override
+  _i6.Future<_i2.Either<_i7.Failure, Map<String, dynamic>>> getCartProduct() =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getCartProduct,
+          [],
+        ),
+        returnValue:
+            _i6.Future<_i2.Either<_i7.Failure, Map<String, dynamic>>>.value(
+                _FakeEither_0<_i7.Failure, Map<String, dynamic>>(
+          this,
+          Invocation.method(
+            #getCartProduct,
+            [],
+          ),
+        )),
+      ) as _i6.Future<_i2.Either<_i7.Failure, Map<String, dynamic>>>);
+
+  @override
+  _i6.Future<_i2.Either<_i7.Failure, bool>> deleteCartProduct(String? cartId) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #deleteCartProduct,
+          [cartId],
+        ),
+        returnValue: _i6.Future<_i2.Either<_i7.Failure, bool>>.value(
+            _FakeEither_0<_i7.Failure, bool>(
+          this,
+          Invocation.method(
+            #deleteCartProduct,
+            [cartId],
+          ),
+        )),
+      ) as _i6.Future<_i2.Either<_i7.Failure, bool>>);
+
+  @override
+  _i6.Future<_i2.Either<_i7.Failure, bool>> addCartProduct(
+    String? cartId,
+    dynamic products,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #addCartProduct,
+          [
+            cartId,
+            products,
+          ],
+        ),
+        returnValue: _i6.Future<_i2.Either<_i7.Failure, bool>>.value(
+            _FakeEither_0<_i7.Failure, bool>(
+          this,
+          Invocation.method(
+            #addCartProduct,
+            [
+              cartId,
+              products,
+            ],
+          ),
+        )),
+      ) as _i6.Future<_i2.Either<_i7.Failure, bool>>);
 }
 
 /// A class which mocks [GroceryRemoteDataSourceImpl].
@@ -220,6 +283,59 @@ class MockGroceryRemoteDatasource extends _i1.Mock
       ) as _i6.Future<_i4.GroceryModel>);
 }
 
+/// A class which mocks [CartService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockCartService extends _i1.Mock implements _i10.CartService {
+  MockCartService() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i6.Future<bool> addOrUpdateCartProduct(
+    String? cartId,
+    dynamic product,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #addOrUpdateCartProduct,
+          [
+            cartId,
+            product,
+          ],
+        ),
+        returnValue: _i6.Future<bool>.value(false),
+      ) as _i6.Future<bool>);
+
+  @override
+  _i6.Future<dynamic> getCartProductById(String? cartId) => (super.noSuchMethod(
+        Invocation.method(
+          #getCartProductById,
+          [cartId],
+        ),
+        returnValue: _i6.Future<dynamic>.value(),
+      ) as _i6.Future<dynamic>);
+
+  @override
+  _i6.Future<Map<String, dynamic>> getAllCartProducts() => (super.noSuchMethod(
+        Invocation.method(
+          #getAllCartProducts,
+          [],
+        ),
+        returnValue:
+            _i6.Future<Map<String, dynamic>>.value(<String, dynamic>{}),
+      ) as _i6.Future<Map<String, dynamic>>);
+
+  @override
+  _i6.Future<bool> deleteCartProduct(String? cartId) => (super.noSuchMethod(
+        Invocation.method(
+          #deleteCartProduct,
+          [cartId],
+        ),
+        returnValue: _i6.Future<bool>.value(false),
+      ) as _i6.Future<bool>);
+}
+
 /// A class which mocks [Client].
 ///
 /// See the documentation for Mockito's code generation for more information.
@@ -275,7 +391,7 @@ class MockHttpClient extends _i1.Mock implements _i3.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i10.Encoding? encoding,
+    _i11.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -306,7 +422,7 @@ class MockHttpClient extends _i1.Mock implements _i3.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i10.Encoding? encoding,
+    _i11.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -337,7 +453,7 @@ class MockHttpClient extends _i1.Mock implements _i3.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i10.Encoding? encoding,
+    _i11.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -368,7 +484,7 @@ class MockHttpClient extends _i1.Mock implements _i3.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i10.Encoding? encoding,
+    _i11.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -405,7 +521,7 @@ class MockHttpClient extends _i1.Mock implements _i3.Client {
           [url],
           {#headers: headers},
         ),
-        returnValue: _i6.Future<String>.value(_i11.dummyValue<String>(
+        returnValue: _i6.Future<String>.value(_i12.dummyValue<String>(
           this,
           Invocation.method(
             #read,
@@ -416,7 +532,7 @@ class MockHttpClient extends _i1.Mock implements _i3.Client {
       ) as _i6.Future<String>);
 
   @override
-  _i6.Future<_i12.Uint8List> readBytes(
+  _i6.Future<_i13.Uint8List> readBytes(
     Uri? url, {
     Map<String, String>? headers,
   }) =>
@@ -426,8 +542,8 @@ class MockHttpClient extends _i1.Mock implements _i3.Client {
           [url],
           {#headers: headers},
         ),
-        returnValue: _i6.Future<_i12.Uint8List>.value(_i12.Uint8List(0)),
-      ) as _i6.Future<_i12.Uint8List>);
+        returnValue: _i6.Future<_i13.Uint8List>.value(_i13.Uint8List(0)),
+      ) as _i6.Future<_i13.Uint8List>);
 
   @override
   _i6.Future<_i3.StreamedResponse> send(_i3.BaseRequest? request) =>
@@ -511,7 +627,7 @@ class MockClient extends _i1.Mock implements _i3.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i10.Encoding? encoding,
+    _i11.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -542,7 +658,7 @@ class MockClient extends _i1.Mock implements _i3.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i10.Encoding? encoding,
+    _i11.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -573,7 +689,7 @@ class MockClient extends _i1.Mock implements _i3.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i10.Encoding? encoding,
+    _i11.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -604,7 +720,7 @@ class MockClient extends _i1.Mock implements _i3.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i10.Encoding? encoding,
+    _i11.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -641,7 +757,7 @@ class MockClient extends _i1.Mock implements _i3.Client {
           [url],
           {#headers: headers},
         ),
-        returnValue: _i6.Future<String>.value(_i11.dummyValue<String>(
+        returnValue: _i6.Future<String>.value(_i12.dummyValue<String>(
           this,
           Invocation.method(
             #read,
@@ -652,7 +768,7 @@ class MockClient extends _i1.Mock implements _i3.Client {
       ) as _i6.Future<String>);
 
   @override
-  _i6.Future<_i12.Uint8List> readBytes(
+  _i6.Future<_i13.Uint8List> readBytes(
     Uri? url, {
     Map<String, String>? headers,
   }) =>
@@ -662,8 +778,8 @@ class MockClient extends _i1.Mock implements _i3.Client {
           [url],
           {#headers: headers},
         ),
-        returnValue: _i6.Future<_i12.Uint8List>.value(_i12.Uint8List(0)),
-      ) as _i6.Future<_i12.Uint8List>);
+        returnValue: _i6.Future<_i13.Uint8List>.value(_i13.Uint8List(0)),
+      ) as _i6.Future<_i13.Uint8List>);
 
   @override
   _i6.Future<_i3.StreamedResponse> send(_i3.BaseRequest? request) =>
